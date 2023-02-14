@@ -6,8 +6,12 @@ client.on("connect", () => {
         let random = Math.random()*25
         console.log('El número generado es:', random);
         if (random >= 20) {
-            client.publish('Numerospana', 'Numero publicado: ' + random)
-            console.log('Número publicado:', random.toString());
+            const obj = {
+                numero: random,
+                date: new Date (Date.now()).toLocaleDateString()
+            }
+            client.publish('Numerospana', JSON.stringify(obj))
+            console.log('Número publicado:', JSON.stringify(obj));
         }   
     }, 3000)
 })

@@ -7,5 +7,5 @@ client.on('connect', () => {
 })
 
 client.on('message', (topic, message) => {
-    console.log('Esuchando el ' + message.toString().toLowerCase())
+    console.log('Esuchando el ' + message)
 })

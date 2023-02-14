@@ -1,9 +1,13 @@
 const mqtt = require('mqtt')
+const conexionaDB = require('./database')
 let client = mqtt.connect('mqtt://broker.hivemq.com')
+let topic = "Numerospana"
+
+conexionaDB()
 
 client.on('connect', () => {
-    client.subscribe("Numerospana")
-    console.log('Conectado satisfactoriamente');
+    client.subscribe(topic)
+    console.log('Subscripto satisfactoriamente al topic: ' + topic);
 })
 
 client.on('message', (topic, message) => {

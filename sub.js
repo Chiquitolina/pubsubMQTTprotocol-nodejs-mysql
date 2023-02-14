@@ -19,5 +19,5 @@ conexionaDB().query('INSERT INTO tabla (numero, fecha, hora) VALUES (?, ?, ?)', 
     if (error) throw error;
     console.log('Datos insertados correctamente.');
   })
-}, 200000)
+}, 40000)
 
